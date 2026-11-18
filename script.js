@@ -343,15 +343,7 @@
           <span data-role="count-label">${isCompleted ? "تم بحمد الله" : `تسبيح (${remaining})`}</span>
         </button>
 
-        <button class="fb-action-btn" data-action="copy" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="9" y="9" width="13" height="13" rx="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
-          <span>نسخ</span>
-        </button>
-
-        <button class="fb-action-btn" data-action="reset" type="button">
+        <button class="fb-action-btn fb-action-reset" data-action="reset" type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path>
             <path d="M3 3v5h5"></path>
@@ -461,13 +453,6 @@
 
     if (action === "increment") {
       handleIncrement(article, item);
-    } else if (action === "copy") {
-      try {
-        await navigator.clipboard.writeText(`${item.title}\n${item.text}`);
-        showToast("تم نسخ الذكر بنجاح");
-      } catch {
-        showToast("تعذر النسخ تلقائيًا");
-      }
     } else if (action === "reset") {
       if (getCount(item.id) === 0) return;
       counts[item.id] = 0;

@@ -597,58 +597,69 @@ button {
   color: var(--fb-green);
 }
 
-/* Post Footer Action Bar (Facebook Like / Comment / Share style) */
+/* Post Footer Action Bar */
 .dhikr-actions {
   margin: 0 12px;
-  padding: 5px 0 6px;
+  padding: 10px 0 12px;
   border-top: 1px solid var(--fb-divider);
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 4px;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
 }
 
 .fb-action-btn {
-  height: 38px;
-  border-radius: 8px;
+  min-height: 54px;
+  padding: 0 16px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  font-size: 0.88rem;
+  gap: 8px;
+  font-size: 0.94rem;
   font-weight: 700;
   color: var(--fb-text-secondary);
-  transition: background-color 0.18s ease, color 0.18s ease, transform 0.12s ease;
+  background-color: var(--fb-surface-alt);
+  transition: background-color 0.18s ease, color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
   user-select: none;
   touch-action: manipulation;
 }
 
 .fb-action-btn:hover {
-  background-color: var(--fb-hover);
+  background-color: var(--fb-btn-hover);
 }
 
 .fb-action-btn:active {
-  transform: scale(0.96);
+  transform: scale(0.975);
 }
 
 .fb-action-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 
 .fb-action-count {
-  background-color: var(--fb-blue-soft);
-  color: var(--fb-blue);
+  background-color: var(--fb-blue);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 6px rgba(24, 119, 242, 0.28);
 }
 
 .fb-action-count:hover {
-  background-color: var(--fb-blue);
+  background-color: var(--fb-blue-hover);
   color: #ffffff;
+}
+
+.fb-action-reset {
+  min-width: 92px;
 }
 
 .dhikr-post.is-completed .fb-action-count {
   background-color: var(--fb-green-soft);
   color: var(--fb-green);
+  box-shadow: none;
 }
 
 .dhikr-post.is-completed .fb-action-count:hover {
@@ -714,11 +725,22 @@ button {
   }
 
   .dhikr-actions {
-    grid-template-columns: 1.7fr 1fr 1fr;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
   }
 
   .fb-action-btn {
-    font-size: 0.83rem;
-    gap: 5px;
+    min-height: 58px;
+    font-size: 0.9rem;
+    gap: 6px;
+  }
+
+  .fb-action-count {
+    font-size: 1.06rem;
+  }
+
+  .fb-action-reset {
+    min-width: 82px;
+    padding: 0 12px;
   }
 }

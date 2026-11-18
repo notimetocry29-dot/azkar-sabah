@@ -1,4 +1,4 @@
-const CACHE_NAME = "ahmed-adhkar-pwa-v2";
+const CACHE_NAME = "azkar-sabah-pwa-v3";
 const CORE_ASSETS = [
   "./",
   "./index.html",
