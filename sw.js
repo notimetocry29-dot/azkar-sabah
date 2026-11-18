@@ -1,4 +1,4 @@
-const CACHE_NAME = "ahmed-pwa-v1";
+const CACHE_NAME = "ahmed-adhkar-pwa-v2";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -36,7 +36,6 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(event.request.url);
 
-  // Cache-first for Google Fonts so typography works offline
   if (
     url.origin === "https://fonts.googleapis.com" ||
     url.origin === "https://fonts.gstatic.com"
@@ -56,7 +55,6 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Same-origin: network-first for navigation, cache-first with background refresh for assets
   if (url.origin === self.location.origin) {
     if (event.request.mode === "navigate") {
       event.respondWith(

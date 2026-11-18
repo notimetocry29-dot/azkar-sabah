@@ -1,16 +1,16 @@
 {
   "id": "./",
-  "name": "أحمد",
-  "short_name": "أحمد",
-  "description": "صفحة عصرية أنيقة باسم أحمد",
+  "name": "أذكار الصباح - أحمد",
+  "short_name": "أذكار الصباح",
+  "description": "عداد أذكار الصباح بتصميم عصري على طراز فيسبوك",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "any",
+  "orientation": "portrait-primary",
   "dir": "rtl",
   "lang": "ar",
-  "background_color": "#07080d",
-  "theme_color": "#07080d",
+  "background_color": "#f0f2f5",
+  "theme_color": "#1877f2",
   "icons": [
     {
       "src": "./icons/icon-192.png",
