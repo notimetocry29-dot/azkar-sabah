@@ -144,7 +144,10 @@ body {
 /* Delicate minimal frame */
 .frame {
   position: fixed;
-  inset: clamp(16px, 3vw, 34px);
+  top: calc(clamp(16px, 3vw, 34px) + env(safe-area-inset-top, 0px));
+  right: calc(clamp(16px, 3vw, 34px) + env(safe-area-inset-right, 0px));
+  bottom: calc(clamp(16px, 3vw, 34px) + env(safe-area-inset-bottom, 0px));
+  left: calc(clamp(16px, 3vw, 34px) + env(safe-area-inset-left, 0px));
   border: 1px solid var(--frame-line);
   pointer-events: none;
   z-index: 4;
@@ -189,12 +192,19 @@ body {
   border-right-width: 1.5px;
 }
 
-/* Discreet icon-only theme switcher */
-.theme-toggle {
+/* Discreet icon-only controls */
+.controls {
   position: fixed;
-  top: clamp(28px, 4.4vw, 50px);
-  left: clamp(28px, 4.4vw, 50px);
+  top: calc(clamp(28px, 4.4vw, 50px) + env(safe-area-inset-top, 0px));
+  left: calc(clamp(28px, 4.4vw, 50px) + env(safe-area-inset-left, 0px));
   z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-btn {
+  position: relative;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -209,16 +219,20 @@ body {
   transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.theme-toggle:hover {
+.icon-btn[hidden] {
+  display: none;
+}
+
+.icon-btn:hover {
   transform: scale(1.08);
   border-color: var(--frame-corner);
 }
 
-.theme-toggle:active {
+.icon-btn:active {
   transform: scale(0.95);
 }
 
-.theme-toggle svg {
+.icon-btn svg {
   width: 18px;
   height: 18px;
   position: absolute;

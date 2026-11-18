@@ -4,13 +4,22 @@
   const spotlight = document.getElementById("spotlight");
   const stageInner = document.getElementById("stage-inner");
   const themeToggle = document.getElementById("theme-toggle");
+  const installBtn = document.getElementById("install-btn");
+  const metaThemeColor = document.getElementById("meta-theme-color");
   const canvas = document.getElementById("ambient-canvas");
   const ctx = canvas.getContext("2d");
+
+  function syncThemeColor(theme) {
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", theme === "light" ? "#f6f3ec" : "#07080d");
+    }
+  }
 
   // Theme persistence
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "light" || savedTheme === "dark") {
     root.setAttribute("data-theme", savedTheme);
+    syncThemeColor(savedTheme);
   }
 
   themeToggle.addEventListener("click", (e) => {
@@ -18,6 +27,38 @@
     const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
     localStorage.setItem("theme", next);
+    syncThemeColor(next);
+  });
+
+  // PWA Service Worker registration
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    });
+  }
+
+  // Native PWA install prompt support
+  let deferredInstallPrompt = null;
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    if (installBtn) installBtn.hidden = false;
+  });
+
+  if (installBtn) {
+    installBtn.addEventListener("click", async (e) => {
+      e.stopPropagation();
+      if (!deferredInstallPrompt) return;
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+      installBtn.hidden = true;
+    });
+  }
+
+  window.addEventListener("appinstalled", () => {
+    deferredInstallPrompt = null;
+    if (installBtn) installBtn.hidden = true;
   });
 
   // Smooth spotlight & 3D subtle tilt
@@ -38,7 +79,7 @@
 
   // Subtle click/tap ripple
   document.addEventListener("pointerdown", (e) => {
-    if (prefersReducedMotion || e.target.closest("#theme-toggle")) return;
+    if (prefersReducedMotion || e.target.closest(".controls")) return;
     const ripple = document.createElement("span");
     ripple.className = "ripple";
     ripple.style.left = `${e.clientX}px`;
