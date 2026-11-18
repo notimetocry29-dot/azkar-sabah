@@ -106,14 +106,13 @@ button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2a8aff 0%, #1877f2 60%, #105fd0 100%);
+  background-color: var(--fb-blue);
   color: #ffffff;
   font-size: 1.35rem;
   font-weight: 800;
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(24, 119, 242, 0.35);
 }
 
 .fb-brand-text {
@@ -283,7 +282,7 @@ button {
 }
 
 .fb-avatar-user {
-  background: linear-gradient(135deg, #1877f2, #0c5dc7);
+  background-color: var(--fb-blue);
 }
 
 .fb-status-greeting {
@@ -456,25 +455,9 @@ button {
   padding: 14px 16px 8px;
   display: flex;
   align-items: center;
-  gap: 11px;
+  justify-content: space-between;
+  gap: 12px;
 }
-
-.dhikr-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #ffffff;
-  font-size: 0.92rem;
-  font-weight: 800;
-  flex-shrink: 0;
-}
-
-.cat-quran { background: linear-gradient(135deg, #1877f2, #0d5cc4); }
-.cat-dua { background: linear-gradient(135deg, #00a400, #2b8a3e); }
-.cat-tasbeeh { background: linear-gradient(135deg, #6c5ce7, #4834d4); }
-.cat-protection { background: linear-gradient(135deg, #f59f00, #e67700); }
 
 .dhikr-meta {
   flex: 1;
@@ -597,69 +580,66 @@ button {
   color: var(--fb-green);
 }
 
-/* Post Footer Action Bar */
+/* Post Footer Action Bar (Clean Flat Facebook Style) */
 .dhikr-actions {
   margin: 0 12px;
-  padding: 10px 0 12px;
+  padding: 6px 0 8px;
   border-top: 1px solid var(--fb-divider);
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 8px;
+  gap: 6px;
 }
 
 .fb-action-btn {
-  min-height: 54px;
+  min-height: 46px;
   padding: 0 16px;
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  font-size: 0.94rem;
+  gap: 7px;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--fb-text-secondary);
-  background-color: var(--fb-surface-alt);
-  transition: background-color 0.18s ease, color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+  background-color: transparent;
+  transition: background-color 0.18s ease, color 0.18s ease, transform 0.12s ease;
   user-select: none;
   touch-action: manipulation;
 }
 
 .fb-action-btn:hover {
-  background-color: var(--fb-btn-hover);
+  background-color: var(--fb-hover);
 }
 
 .fb-action-btn:active {
-  transform: scale(0.975);
+  transform: scale(0.97);
 }
 
 .fb-action-btn svg {
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
   flex-shrink: 0;
 }
 
 .fb-action-count {
-  background-color: var(--fb-blue);
-  color: #ffffff;
-  font-size: 1.05rem;
+  background-color: var(--fb-blue-soft);
+  color: var(--fb-blue);
+  font-size: 0.98rem;
   font-weight: 800;
-  letter-spacing: 0.01em;
-  box-shadow: 0 2px 6px rgba(24, 119, 242, 0.28);
 }
 
 .fb-action-count:hover {
-  background-color: var(--fb-blue-hover);
+  background-color: var(--fb-blue);
   color: #ffffff;
 }
 
 .fb-action-reset {
-  min-width: 92px;
+  min-width: 88px;
 }
 
 .dhikr-post.is-completed .fb-action-count {
   background-color: var(--fb-green-soft);
   color: var(--fb-green);
-  box-shadow: none;
 }
 
 .dhikr-post.is-completed .fb-action-count:hover {
@@ -726,21 +706,21 @@ button {
 
   .dhikr-actions {
     grid-template-columns: 1fr auto;
-    gap: 8px;
+    gap: 6px;
   }
 
   .fb-action-btn {
-    min-height: 58px;
-    font-size: 0.9rem;
+    min-height: 48px;
+    font-size: 0.88rem;
     gap: 6px;
   }
 
   .fb-action-count {
-    font-size: 1.06rem;
+    font-size: 0.98rem;
   }
 
   .fb-action-reset {
-    min-width: 82px;
+    min-width: 78px;
     padding: 0 12px;
   }
 }

@@ -306,7 +306,6 @@
 
     article.innerHTML = `
       <div class="dhikr-header">
-        <div class="dhikr-avatar ${item.catClass}" aria-hidden="true">${item.avatar}</div>
         <div class="dhikr-meta">
           <div class="dhikr-title-row">
             <h2 class="dhikr-title">${item.title}</h2>
